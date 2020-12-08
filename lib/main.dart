@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String email;
   sendMail() async {
     String username = 'hancyjerry11@gmail.com';
-    String password = 'K@thmandu';
+    String password = 'Type your password';
 
     final smtpServer = gmail(username, password);
     // Use the SmtpServer class to configure an SMTP server:
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ..recipients.add('nirdoshlamixane001@gmail.com')
       //..ccRecipients.addAll(['destCc1@example.com', 'destCc2@example.com'])
       //..bccRecipients.add(Address('bccAddress@example.com'))
-      ..subject = 'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
+      ..subject = 'Check mail:: ${DateTime.now()}'
       ..text = 'This is the plain text.\nThis is line 2 of the text part.'
       ..html =
           "<h1>Test</h1>\n<p>Hey! Are you fine in this covid 19 period .</p>";
@@ -60,42 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
         print('Problem: ${p.code}: ${p.msg}');
       }
     }
-    // DONE
-
-    // Let's send another message using a slightly different syntax:
-    //
-    // Addresses without a name part can be set directly.
-    // For instance `..recipients.add('destination@example.com')`
-    // If you want to display a name part you have to create an
-    // Address object: `new Address('destination@example.com', 'Display name part')`
-    // Creating and adding an Address object without a name part
-    // `new Address('destination@example.com')` is equivalent to
-    // adding the mail address as `String`.
-    // final equivalentMessage = Message()
-    //   ..from = Address(username, 'Your name')
-    //   ..recipients.add(Address('destination@example.com'))
-    //   ..ccRecipients
-    //       .addAll([Address('destCc1@example.com'), 'destCc2@example.com'])
-    //   ..bccRecipients.add('bccAddress@example.com')
-    //   ..subject = 'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
-    //   ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-    //   ..html = "<h1>Test</h1>\n<p>Hey! Here's some HTML content</p>";
-
-    // final sendReport2 = await send(equivalentMessage, smtpServer);
-
-    // // Sending multiple messages with the same connection
-    // //
-    // // Create a smtp client that will persist the connection
-    // var connection = PersistentConnection(smtpServer);
-
-    // // Send the first message
-    // await connection.send(message);
-
-    // // send the equivalent message
-    // await connection.send(equivalentMessage);
-
-    // // close the connection
-    // await connection.close();
   }
 
   @override
